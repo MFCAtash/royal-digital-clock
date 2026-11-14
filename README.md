@@ -1,5 +1,9 @@
 # 🕰️ Royal Digital Clock
 
+<p align="center">
+  <img src="preview.png" alt="پیش‌نمایش ساعت دیجیتال رویال" width="700">
+</p>
+
 یک ساعت دیجیتال زیبا و مدرن با طراحی شیشه‌ای (Glassmorphism)، پس‌زمینه ذرات شناور و رابط کاربری فارسی (راست‌به‌چپ).
 
 ## ✨ ویژگی‌ها
@@ -10,6 +14,12 @@
 - 📱 کاملاً واکنش‌گرا (Responsive) — مناسب موبایل و دسکتاپ
 - 🔤 فونت Poppins از Google Fonts
 
+## 🌐 مشاهده آنلاین
+
+ساعت به‌صورت زنده از این آدرس قابل بازدید است:
+
+**https://mfcatach.github.io/royal-digital-clock/**
+
 ## 🚀 اجرا
 
 هیچ نصب یا وابستگی‌ای لازم نیست! کافیست فایل را باز کنید:
@@ -18,7 +28,7 @@
    ```bash
    git clone https://github.com/MFCAtash/royal-digital-clock.git
    ```
-2. فایل `preview.html` را در مرورگر باز کنید.
+2. فایل `index.html` را در مرورگر باز کنید.
 
 ## 🛠️ تکنولوژی‌ها
 
@@ -32,9 +42,15 @@
 
 ```
 royal-digital-clock/
-├── preview.html    # فایل اصلی ساعت دیجیتال
+├── index.html      # فایل اصلی ساعت دیجیتال
+├── preview.png     # تصویر پیش‌نمایش
+├── LICENSE         # مجوز MIT
 └── README.md
 ```
+
+## 📄 مجوز
+
+این پروژه تحت مجوز [MIT](LICENSE) منتشر شده است.
 
 ---
 
