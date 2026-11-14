@@ -127,13 +127,3 @@ royal-digital-clock/
 هرگونه کپی، توزیع یا استفاده از این پروژه بدون اجازه کتبی از صاحب اثر ممنوع است. جزئیات کامل در فایل [LICENSE](LICENSE) آمده است.
 
 </div>
-
----
-
-<div align="center">
-
-**Built with ❤️ by [Mohammad Atash](https://github.com/MFCAtash) · ساخته شده با ❤️ توسط محمد آتش**
-
-⭐ Star this repository if you like it! · اگر پروژه را دوست داشتید ستاره بدهید!
-
-</div>
