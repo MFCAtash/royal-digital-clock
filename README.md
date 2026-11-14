@@ -18,7 +18,7 @@
 
 ساعت به‌صورت زنده از این آدرس قابل بازدید است:
 
-**https://mfcatach.github.io/royal-digital-clock/**
+**https://mfcatash.github.io/royal-digital-clock/**
 
 ## 🚀 اجرا
 
