@@ -16,7 +16,7 @@
 
 1. پروژه را دانلود یا کلون کنید:
    ```bash
-   git clone https://github.com/USER/royal-digital-clock.git
+   git clone https://github.com/MFCAtash/royal-digital-clock.git
    ```
 2. فایل `preview.html` را در مرورگر باز کنید.
 
@@ -38,4 +38,4 @@ royal-digital-clock/
 
 ---
 
-ساخته شده با ❤️ توسط [Mohammad Atash](https://github.com/USER)
+ساخته شده با ❤️ توسط [Mohammad Atash](https://github.com/MFCAtash)
