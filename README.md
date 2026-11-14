@@ -1,58 +1,139 @@
+<div align="center">
+
 # 🕰️ Royal Digital Clock
 
-<p align="center">
-  <img src="preview.png" alt="پیش‌نمایش ساعت دیجیتال رویال" width="700">
-</p>
+<img src="preview.png" alt="Royal Digital Clock Preview" width="700">
 
-یک ساعت دیجیتال زیبا و مدرن با طراحی شیشه‌ای (Glassmorphism)، پس‌زمینه ذرات شناور و رابط کاربری فارسی (راست‌به‌چپ).
+**A modern digital clock with glassmorphism design, floating particles, and Persian RTL interface.**
 
-## ✨ ویژگی‌ها
+[![Live Demo](https://img.shields.io/badge/Live_Demo-mfcatash.github.io-ffd76a?style=for-the-badge&logo=github)](https://mfcatash.github.io/royal-digital-clock/)
+[![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=for-the-badge)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-MFCAtash-181717?style=for-the-badge&logo=github)](https://github.com/MFCAtash)
 
-- 🎨 طراحی مدرن با افکت شیشه‌ای و گرادیان تیره
-- ❄️ پس‌زمینه ذرات متحرک شناور (Particles.js)
-- 🇮🇷 رابط کاربری فارسی با چینش راست‌به‌چپ (RTL)
-- 📱 کاملاً واکنش‌گرا (Responsive) — مناسب موبایل و دسکتاپ
-- 🔤 فونت Poppins از Google Fonts
+</div>
 
-## 🌐 مشاهده آنلاین
+---
 
-ساعت به‌صورت زنده از این آدرس قابل بازدید است:
+## 🇬🇧 English
 
-**https://mfcatash.github.io/royal-digital-clock/**
+### ✨ Features
 
-## 🚀 اجرا
+- 🎨 **Modern design** — glassmorphism effect with a dark gradient background
+- ❄️ **Floating particles** — animated interactive background (Particles.js)
+- 🇮🇷 **Persian RTL interface** — right-to-left layout for Persian users
+- 📱 **Fully responsive** — looks great on both mobile and desktop
+- 🔤 **Poppins font** — clean typography from Google Fonts
 
-هیچ نصب یا وابستگی‌ای لازم نیست! کافیست فایل را باز کنید:
+### 🌐 Live Demo
 
-1. پروژه را دانلود یا کلون کنید:
+Watch the clock online — no installation needed:
+
+> **https://mfcatash.github.io/royal-digital-clock/**
+
+### 🚀 Getting Started
+
+1. Clone the repository:
+
    ```bash
    git clone https://github.com/MFCAtash/royal-digital-clock.git
    ```
+
+2. Open `index.html` in your browser.
+
+   That's it — no dependencies, no build step.
+
+### 🛠️ Technologies
+
+| Technology | Purpose |
+|:---|:---|
+| HTML5 | Structure |
+| CSS3 | Glassmorphism, animations, gradients |
+| JavaScript | Clock logic and interactions |
+| Particles.js | Floating background particles |
+| Google Fonts | Poppins typeface |
+
+### 📁 Project Structure
+
+```
+royal-digital-clock/
+├── index.html      # Main clock application
+├── preview.png     # Preview image
+├── LICENSE         # License file
+└── README.md       # Documentation
+```
+
+### 📄 License
+
+© 2026 Mohammad Atash — **All Rights Reserved.**
+
+Copying, distributing, or using this project without written permission from the author is prohibited. See [LICENSE](LICENSE) for details.
+
+---
+
+<div dir="rtl">
+
+## 🇮🇷 فارسی
+
+### ✨ ویژگی‌ها
+
+- 🎨 **طراحی مدرن** — افکت شیشه‌ای (Glassmorphism) با پس‌زمینه گرادیان تیره
+- ❄️ **ذرات شناور** — پس‌زمینه متحرک و تعاملی (Particles.js)
+- 🇮🇷 **رابط کاربری فارسی** — چینش راست‌به‌چپ (RTL)
+- 📱 **کاملاً واکنش‌گرا** — نمایش عالی در موبایل و دسکتاپ
+- 🔤 **فونت Poppins** — تایپوگرافی تمیز از Google Fonts
+
+### 🌐 مشاهده آنلاین
+
+ساعت به‌صورت زنده و بدون نیاز به نصب از این آدرس قابل بازدید است:
+
+> **https://mfcatash.github.io/royal-digital-clock/**
+
+### 🚀 نحوه اجرا
+
+1. مخزن را کلون کنید:
+
+   ```bash
+   git clone https://github.com/MFCAtash/royal-digital-clock.git
+   ```
+
 2. فایل `index.html` را در مرورگر باز کنید.
 
-## 🛠️ تکنولوژی‌ها
+   همین! بدون هیچ وابستگی یا نصبی.
 
-- HTML5
-- CSS3 (Glassmorphism، انیمیشن، گرادیان)
-- JavaScript
-- [Particles.js](https://vincentgarreau.com/particles.js/)
-- Google Fonts (Poppins)
+### 🛠️ تکنولوژی‌ها
 
-## 📁 ساختار پروژه
+| تکنولوژی | کاربرد |
+|:---|:---|
+| HTML5 | ساختار صفحه |
+| CSS3 | شیشه‌ای، انیمیشن، گرادیان |
+| JavaScript | منطق ساعت و تعاملات |
+| Particles.js | ذرات شناور پس‌زمینه |
+| Google Fonts | فونت Poppins |
+
+### 📁 ساختار پروژه
 
 ```
 royal-digital-clock/
 ├── index.html      # فایل اصلی ساعت دیجیتال
 ├── preview.png     # تصویر پیش‌نمایش
-├── LICENSE         # مجوز MIT
-└── README.md
+├── LICENSE         # فایل مجوز
+└── README.md       # مستندات
 ```
 
-## 📄 مجوز
+### 📄 مجوز
 
-© ۲۰۲۶ Mohammad Atash — تمامی حقوق محفوظ است (All Rights Reserved).
-هرگونه کپی، توزیع یا استفاده از این پروژه بدون اجازه کتبی صاحب اثر ممنوع است. جزئیات در فایل [LICENSE](LICENSE).
+© ۲۰۲۶ محمد آتش — **تمامی حقوق محفوظ است.**
+
+هرگونه کپی، توزیع یا استفاده از این پروژه بدون اجازه کتبی از صاحب اثر ممنوع است. جزئیات کامل در فایل [LICENSE](LICENSE) آمده است.
+
+</div>
 
 ---
 
-ساخته شده با ❤️ توسط [Mohammad Atash](https://github.com/MFCAtash)
+<div align="center">
+
+**Built with ❤️ by [Mohammad Atash](https://github.com/MFCAtash) · ساخته شده با ❤️ توسط محمد آتش**
+
+⭐ Star this repository if you like it! · اگر پروژه را دوست داشتید ستاره بدهید!
+
+</div>
