@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Digital Clock</title>
+
+    <!-- =========================
+         Google Font
+    ========================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =========================
+         CSS
+    ========================== -->
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: "Poppins", "Segoe UI", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(65, 55, 100, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(80, 70, 120, 0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(120, 100, 70, 0.07),
+                    transparent 30%
+                ),
+                #080910;
+
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           PARTICLES BACKGROUND
+        ========================== */
+
+        #particles-js {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 1;
+
+            background: transparent;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================== */
+
+        .clock-container {
+            position: relative;
+
+            z-index: 10;
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           CLOCK CARD
+        ========================== */
+
+        .clock {
+            position: relative;
+
+            width: min(420px, 92vw);
+            min-height: 210px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.075),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.13);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            pointer-events: auto;
+
+            overflow: hidden;
+
+            transition:
+                border-color 0.8s ease,
+                box-shadow 0.8s ease,
+                transform 0.5s ease;
+        }
+
+
+        /* =========================
+           CARD TOP LIGHT
+        ========================== */
+
+        .clock::before {
+            content: "";
+
+            position: absolute;
+
+            top: -100px;
+            left: 50%;
+
+            width: 260px;
+            height: 180px;
+
+            transform: translateX(-50%);
+
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.07),
+                transparent 70%
+            );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           CARD BORDER EFFECT
+        ========================== */
+
+        .clock::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: inherit;
+
+            padding: 1px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.14),
+                transparent 35%,
+                transparent 65%,
+                rgba(255,255,255,0.07)
+            );
+
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           TIME
+        ========================== */
+
+        .time {
+            position: relative;
+
+            direction: ltr;
+
+            font-size: clamp(48px, 9vw, 68px);
+
+            font-weight: 500;
+
+            letter-spacing: 6px;
+
+            line-height: 1;
+
+            color: #d6cfc7;
+
+            text-align: center;
+
+            white-space: nowrap;
+
+            text-shadow:
+                0 0 6px rgba(255, 255, 255, 0.12),
+                0 0 14px rgba(191, 169, 128, 0.18);
+
+            transition:
+                color 1s ease,
+                text-shadow 1s ease,
+                transform 0.3s ease;
+        }
+
+
+        /* =========================
+           COLONS
+        ========================== */
+
+        .time span {
+            color: inherit;
+
+            opacity: 0.75;
+
+            animation:
+                softBlink 2.5s ease-in-out infinite;
+
+            transition:
+                color 1s ease;
+        }
+
+
+        /* =========================
+           DATE
+        ========================== */
+
+        .date {
+            margin-top: 18px;
+
+            direction: ltr;
+
+            font-size: 18px;
+
+            font-weight: 300;
+
+            letter-spacing: 3px;
+
+            color: rgba(235, 232, 225, 0.68);
+
+            text-align: center;
+
+            transition:
+                color 1s ease,
+                opacity 1s ease;
+        }
+
+
+        /* =========================
+           SUBTLE ANIMATION
+        ========================== */
+
+        @keyframes softBlink {
+
+            0%,
+            100% {
+                opacity: 0.35;
+            }
+
+            50% {
+                opacity: 0.85;
+            }
+        }
+
+
+        /* =========================
+           CLOCK HOVER
+        ========================== */
+
+        .clock:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .clock {
+                min-height: 180px;
+
+                padding: 25px;
+
+                border-radius: 24px;
+            }
+
+            .time {
+                letter-spacing: 3px;
+            }
+
+            .date {
+                margin-top: 15px;
+
+                font-size: 15px;
+
+                letter-spacing: 2px;
+            }
+        }
+
+
+        /* =========================
+           VERY SMALL SCREEN
+        ========================== */
+
+        @media (max-width: 380px) {
+
+            .clock {
+                padding: 20px;
+            }
+
+            .time {
+                font-size: 42px;
+                letter-spacing: 2px;
+            }
+
+            .date {
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         PARTICLES
+    ========================== -->
+
+    <div id="particles-js"></div>
+
+
+    <!-- =========================
+         CLOCK
+    ========================== -->
+
+    <main class="clock-container">
+
+        <section class="clock" id="clockCard">
+
+            <div
+                class="time"
+                id="time"
+                aria-label="Digital clock"
+            >
+                00:00:00
+            </div>
+
+            <div
+                class="date"
+                id="date"
+                aria-label="Current date"
+            >
+                2026/01/01
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         PARTICLES.JS
+    ========================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================================
+           PARTICLES CONFIGURATION
+        ========================================= */
+
+        particlesJS("particles-js", {
+
+            particles: {
+
+                number: {
+                    value: 70,
+
+                    density: {
+                        enable: true,
+                        value_area: 900
+                    }
+                },
+
+                color: {
+                    value: "#bfa980"
+                },
+
+                shape: {
+                    type: "circle"
+                },
+
+                opacity: {
+                    value: 0.35,
+                    random: true,
+
+                    anim: {
+                        enable: true,
+                        speed: 0.5,
+                        opacity_min: 0.08,
+                        sync: false
+                    }
+                },
+
+                size: {
+                    value: 2.2,
+                    random: true,
+
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        size_min: 0.5,
+                        sync: false
+                    }
+                },
+
+                line_linked: {
+
+                    enable: true,
+
+                    distance: 145,
+
+                    color: "#bfa980",
+
+                    opacity: 0.18,
+
+                    width: 1
+                },
+
+                move: {
+
+                    enable: true,
+
+                    speed: 1.5,
+
+                    direction: "none",
+
+                    random: true,
+
+                    straight: false,
+
+                    out_mode: "out",
+
+                    bounce: false,
+
+                    attract: {
+                        enable: false
+                    }
+                }
+            },
+
+
+            /* =====================================
+               INTERACTION
+            ===================================== */
+
+            interactivity: {
+
+                detect_on: "canvas",
+
+                events: {
+
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+
+                    resize: true
+                },
+
+
+                modes: {
+
+                    grab: {
+
+                        distance: 170,
+
+                        line_linked: {
+                            opacity: 0.35
+                        }
+                    },
+
+
+                    push: {
+
+                        particles_nb: 3
+                    }
+                }
+            },
+
+
+            /* =====================================
+               RETINA
+            ===================================== */
+
+            retina_detect: true
+
+        });
+
+
+        /* =========================================
+           CLOCK ELEMENTS
+        ========================================= */
+
+        const timeElement =
+            document.getElementById("time");
+
+        const dateElement =
+            document.getElementById("date");
+
+        const clockCard =
+            document.getElementById("clockCard");
+
+
+        /* =========================================
+           SOFT ROYAL COLOR PALETTE
+        ========================================= */
+
+        const softRoyalColors = [
+
+            "#C9B037", // Soft Gold
+
+            "#9FB8AD", // Calm Green
+
+            "#8FAADC", // Royal Blue
+
+            "#C0A9D9", // Soft Purple
+
+            "#D6CFC7", // Silver
+
+            "#BFA980"  // Champagne
+        ];
+
+
+        /* =========================================
+           RANDOM COLOR
+        ========================================= */
+
+        function getRandomColor() {
+
+            const index =
+                Math.floor(
+                    Math.random() *
+                    softRoyalColors.length
+                );
+
+            return softRoyalColors[index];
+        }
+
+
+        /* =========================================
+           UPDATE CLOCK
+        ========================================= */
+
+        function updateClock() {
+
+            const now = new Date();
+
+
+            /* ===============================
+               TIME
+            =============================== */
+
+            const hours =
+                String(now.getHours())
+                .padStart(2, "0");
+
+            const minutes =
+                String(now.getMinutes())
+                .padStart(2, "0");
+
+            const seconds =
+                String(now.getSeconds())
+                .padStart(2, "0");
+
+
+            /* ===============================
+               DISPLAY TIME
+            =============================== */
+
+            timeElement.innerHTML = `
+                ${hours}
+                <span>:</span>
+                ${minutes}
+                <span>:</span>
+                ${seconds}
+            `;
+
+
+            /* ===============================
+               DATE
+            =============================== */
+
+            const day =
+                String(now.getDate())
+                .padStart(2, "0");
+
+            const month =
+                String(now.getMonth() + 1)
+                .padStart(2, "0");
+
+            const year =
+                now.getFullYear();
+
+
+            dateElement.textContent =
+                `${year}/${month}/${day}`;
+
+
+            /* ===============================
+               SOFT COLOR CHANGE
+            =============================== */
+
+            const color =
+                getRandomColor();
+
+
+            timeElement.style.color =
+                color;
+
+
+            /* ===============================
+               NATURAL GLOW
+            =============================== */
+
+            timeElement.style.textShadow = `
+                0 0 6px rgba(255,255,255,0.12),
+                0 0 14px ${color}55
+            `;
+
+
+            /* ===============================
+               CARD BORDER
+            =============================== */
+
+            clockCard.style.borderColor =
+                `${color}35`;
+
+
+            /* ===============================
+               CARD SUBTLE GLOW
+            =============================== */
+
+            clockCard.style.boxShadow = `
+                0 25px 70px rgba(0,0,0,0.55),
+                0 0 35px ${color}10,
+                inset 0 1px 0 rgba(255,255,255,0.08)
+            `;
+
+        }
+
+
+        /* =========================================
+           INITIAL UPDATE
+        ========================================= */
+
+        updateClock();
+
+
+        /* =========================================
+           UPDATE EVERY SECOND
+        ========================================= */
+
+        setInterval(updateClock, 1000);
+
+    </script>
+
+</body>
+</html>
